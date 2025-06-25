@@ -11,8 +11,19 @@ import taskRoute from './routes/task.js';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://seekhelpers-task-todo-dyol.vercel.app',
+];
+
 app.use(cors({
-  origin: 'https://seekhelpers-task-todo-dyol.vercel.app',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 }));
 
 app.use('/api/tasks', taskRoute);
