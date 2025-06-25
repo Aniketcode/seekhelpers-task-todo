@@ -51,9 +51,6 @@ const TaskAdd = ({ refetchTasks }) => {
                 {...register("title", { required: "Title is required.." })}
                 placeholder="Enter todo title.."
                 className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-600 rounded-md"
-                onKeyDown={() => {
-                  e.preventDefault(), handleSubmit(onSubmit);
-                }}
               />
               {errors.title && (
                 <div className="text-red-500 mt-1">{errors.title.message}</div>

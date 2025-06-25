@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
+const LOCAL_URL = 'http://localhost:5000';
+const DEPLOYED_URL = 'https://seekhelpers-task-todo.onrender.com'
 export const taskApi = createApi({
   reducerPath: 'taskapi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:5000'
+    baseUrl: DEPLOYED_URL
   }),
   endpoints: (builder) => ({
     getAllTasks: builder.query({
