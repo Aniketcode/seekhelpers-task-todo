@@ -12,7 +12,7 @@ import taskRoute from './routes/task.js';
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({
-  origin: ['http://localhost:5173','https://seekhelpers-task-todo-jmim.vercel.app'],
+  origin: 'https://seekhelpers-task-todo-jmim.vercel.app',
 }));
 
 app.use('/api/tasks', taskRoute);
